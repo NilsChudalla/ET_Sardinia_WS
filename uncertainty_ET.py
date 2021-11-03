@@ -16,17 +16,17 @@ modelling library **Gempy**. Results can be seen on my github''')
 st.radio("Uncertainty style (does not work yet)",
          ('Probability', 'Entropy'))
 
-
+resolution = np.array([80, 120, 60])
 # set data source
 
-DATA_URL = 'https://raw.githubusercontent.com/NilsChudalla/Test_Sofia/main/entropy_block.csv'
-
+DATA_URL = 'https://https://github.com/NilsChudalla/ET_Sardinia_WS/blob/master/ent_block.npy'
+#https://github.com/NilsChudalla/ET_Sardinia_WS/blob/master/ent_block.npy?raw=true
 
 # load data into cache
 @st.cache
 def load_data():
-    block = pd.read_csv(DATA_URL, usecols=['vals']).values.reshape(50,50,50)
-    #block = np.load(DATA_URL, allow_pickle=True).reshape(50, 50, 50)
+    #block = pd.read_csv(DATA_URL, usecols=['vals']).values.reshape(50,50,50)
+    block = np.load(DATA_URL, allow_pickle=True).reshape(resolution)
     return block
 # info text for loading data
 data_load_state = st.text('Loading data...')
@@ -35,7 +35,7 @@ data_load_state.text("Done! (using st.cache)")
 
 # Setting plotting parameters
 xmin, xmax, ymin, ymax, zmin, zmax = [6, 25, 3, 35, -5.5, 0.5]
-resolution = np.array([50.0, 50.0, 50.0])
+
 d_grid = np.array([xmax - xmin, ymax - ymin, zmax - zmin])
 cell_width = d_grid / resolution
 grid_min = np.array([xmin, ymin, zmin]) + cell_width/0.5
