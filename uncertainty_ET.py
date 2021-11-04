@@ -67,7 +67,7 @@ def load_data():
     #block = np.load(DATA_URL, allow_pickle=True).reshape(resolution)
     return lith_block, prob_block, ent_block
 # info text for loading data
-data_load_state = st.text('Loading data...')
+
 lith_block, prob_block, ent_block = load_data()
 
 if selection == 'Lithology':
