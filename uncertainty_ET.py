@@ -13,6 +13,7 @@ lith_URL = 'https://raw.githubusercontent.com/NilsChudalla/ET_Sardinia_WS/master
 prob_URL = 'https://raw.githubusercontent.com/NilsChudalla/ET_Sardinia_WS/master/prob_block.csv'
 ent_URL = 'https://raw.githubusercontent.com/NilsChudalla/ET_Sardinia_WS/master/ent_block.csv'
 leg_URL = 'https://raw.githubusercontent.com/NilsChudalla/ET_Sardinia_WS/master/legend.png'
+logo_URL = 'https://raw.githubusercontent.com/NilsChudalla/ET_Sardinia_WS/master/ET_logo.png'
 
 resolution = np.array([80, 120, 60])
 
@@ -35,6 +36,10 @@ cdict = {'red':   ((0.0,  1.0, 1.0),
 cmap_name = 'entropy_layers'
 cm = LinearSegmentedColormap(cmap_name, cdict)
 plt.register_cmap(cmap=cm)
+
+head1, head2, head3, head4 = st.columns(4)
+head1.image(logo_URL)
+
 st.title('Uncertainty in site investigation')
 st.markdown(r'''This is a simple visualization of uncertainties in the model presented by Nils Chudalla 
 (RWTH Aachen University, CGRE). The model focuses on the Cretaceous sediments in the EMR region. Data sources are the
