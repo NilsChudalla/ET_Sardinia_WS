@@ -37,7 +37,7 @@ cmap_name = 'entropy_layers'
 cm = LinearSegmentedColormap(cmap_name, cdict)
 plt.register_cmap(cmap=cm)
 
-head1, head2, head3, head4 = st.columns(4)
+head1, head2, head3= st.columns(3)
 head1.image(logo_URL)
 
 st.title('Uncertainty in site investigation')
